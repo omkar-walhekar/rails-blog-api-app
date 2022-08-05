@@ -1,6 +1,6 @@
 # README
 
-## Convert api only rails 7 app to full application and develop
+## Convert api only rails 7 app to full application
 
 `ensure postgres and rvm is installed`
 
@@ -36,10 +36,32 @@
 
 > rake db:seed
 
-> rails s
+
+## Local Deployment with scss
+
+> ./bin/dev
 
 
 ## Deploy locally as production
+
+### scss steps
+
+[dartsass-rails](https://github.com/rails/dartsass-rails/blob/main/README.md)
+
+#### Installation (not needed for production)
+
+1. Run `./bin/bundle add dartsass-rails`
+2. Run `./bin/rails dartsass:install`
+
+#### Building in production
+
+The `dartsass:build` is automatically attached to `assets:precompile`, so before the asset pipeline digests the files, the Dart Sass output will be generated.
+
+
+
+
+### deployment steps
+
 
 > cd `project_directory`
 
