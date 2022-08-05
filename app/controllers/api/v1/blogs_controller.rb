@@ -3,10 +3,14 @@ module Api
     class BlogsController < ApplicationController
 
       before_action :find_blog, only: %i[show get_comments get_likes]
-    
+      before_action :set_default_response_format
+
       def index
-        @blogs = Blog.all
-        render json: @blogs
+        puts request.format
+        @blogs = Blog.all.limit(100)
+        
+        
+        render json: @blogs.map(&:attributes)
       end
     
       def show
@@ -42,6 +46,12 @@ module Api
       def blog_params
         params.require(:blog).permit(:title, :content, :author_id)
       end
+
+      def set_default_response_format
+        request.format = :json
+      end
+
+
     end
   end
 end
