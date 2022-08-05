@@ -3,4 +3,15 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  root 'blogs#index'
+
+  namespace :api, constraints: { format: 'json' } do
+    namespace :v1 do
+      resources :authors
+      resources :blogs
+
+      get '/blogs/:id/comments', to: 'blogs#get_comments'
+      get '/blogs/:id/likes', to: 'blogs#get_likes'
+    end
+  end
 end
