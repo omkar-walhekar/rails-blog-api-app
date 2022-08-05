@@ -7,7 +7,7 @@ module Api
 
       def index
         puts request.format
-        @blogs = Blog.all.limit(100)
+        @blogs = Blog.order(updated_at: :desc).limit(100)
         
         
         render json: @blogs.map(&:attributes)
