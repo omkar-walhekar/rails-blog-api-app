@@ -39,6 +39,16 @@
 
 > rake db:seed
 
+## Importmaps and Stimulus 
+
+> ./bin/rails turbo:install
+
+> ./bin/rails turbo:install:redis
+
+ This is done to change the development Action Cable adapter from Async (the default one) to Redis. The Async adapter does not support Turbo Stream broadcasting.
+ 
+ Running `turbo:install` will install through NPM if Node.js is used in the application. Otherwise the asset pipeline version is used. To use the asset pipeline version, you must have `importmap-rails` installed first and listed higher in the Gemfile.
+
 
 ## Local Deployment with scss
 
