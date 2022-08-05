@@ -1,5 +1,8 @@
 # README
 
+[rails 7 scss usage arguments](https://stackoverflow.com/questions/71231622/idiomatic-sass-processing-in-rails-7/71236590#71236590)
+
+
 ## Convert api only rails 7 app to full application
 
 `ensure postgres and rvm is installed`
